@@ -4,10 +4,10 @@ const semver = require('semver')
 
 const shellArgs = process.argv.slice(2)
 const [name] = shellArgs
-
 ;(async () => {
   // run the install command
-  const {stdout} = await execa('npm', ['install', name])
+  // const {stdout} = await execa('npm', ['install', name])
+  await execa('npm', ['install', name])
 
   // read package.json
   const rawPackageJson = fs.readFileSync('package.json')
