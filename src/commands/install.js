@@ -10,7 +10,10 @@ module.exports = async function install(packages, {saveDev}) {
     {
       title: 'Install package dependencies with npm',
       task: async () => {
-        await execa('npm', ['install', saveDev && '--save-dev', ...packages])
+        const npmArgs = ['install']
+          .concat(saveDev ? '--save-dev' : [])
+          .concat(packages)
+        await execa('npm', npmArgs)
       }
     },
     {
