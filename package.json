@@ -5,6 +5,10 @@
   "repository": "https://github.com/desko27/npmajor.git",
   "author": "desko27 <desko27@gmail.com>",
   "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "npmajor": "./bin/npmajor.js"
+  },
   "main": "src/npmajor.js",
   "scripts": {
     "start": "node src/npmajor.js",
