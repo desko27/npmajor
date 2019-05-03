@@ -2,11 +2,17 @@ const chalk = require('chalk')
 const execa = require('execa')
 const fs = require('fs')
 const Listr = require('listr')
+const program = require('commander')
 const semver = require('semver')
 
 const DEPENDENCIES_KEYS = {DEV: 'devDependencies', NORMAL: 'dependencies'}
 
-module.exports = async function install(packages, {saveDev}) {
+// cli definition
+program.option('-D, --save-dev', 'save to devDependencies').parse(process.argv)
+const {args: packages, saveDev} = program
+
+// actual command
+;(async function installCommand() {
   console.log() // initial output spacing
 
   const tasks = new Listr([
@@ -73,4 +79,4 @@ module.exports = async function install(packages, {saveDev}) {
 
       console.log() // final output spacing
     })
-}
+})()

@@ -9,10 +9,10 @@
   "bin": {
     "npmajor": "./bin/npmajor.js"
   },
-  "main": "src/npmajor.js",
+  "main": "bin/npmajor.js",
   "scripts": {
-    "start": "node src/npmajor.js",
-    "test": "npm run test:setup && cd test && node ../src/npmajor.js",
+    "start": "node bin/npmajor.js",
+    "test": "npm run test:setup && cd test && node ../bin/npmajor.js",
     "test:setup": "rimraf test && mkdir -p test && cd test && npm init -y 1> /dev/null",
     "lint": "sui-lint js"
   },
