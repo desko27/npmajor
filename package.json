@@ -1,6 +1,6 @@
 {
   "name": "npmajor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "installs an npm package and saves only the major version number",
   "repository": "https://github.com/desko27/npmajor.git",
   "author": "desko27 <desko27@gmail.com>",
