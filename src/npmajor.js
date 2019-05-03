@@ -5,9 +5,7 @@ const installCommand = require('./commands/install')
 
 program
   .version(version)
-  .command('install <packages...>', null, {
-    isDefault: true
-  })
+  .command('install <packages...>')
   .alias('i')
   .option('-D, --save-dev', 'save to devDependencies')
   .action(installCommand)
