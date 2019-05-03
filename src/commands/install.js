@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const execa = require('execa')
 const fs = require('fs')
 const Listr = require('listr')
@@ -6,9 +7,11 @@ const semver = require('semver')
 const DEPENDENCIES_KEYS = {DEV: 'devDependencies', NORMAL: 'dependencies'}
 
 module.exports = async function install(packages, {saveDev}) {
+  console.log() // initial output spacing
+
   const tasks = new Listr([
     {
-      title: 'Install package dependencies with npm',
+      title: ' Installing dependencies',
       task: async () => {
         const npmArgs = ['install']
           .concat(saveDev ? '--save-dev' : [])
@@ -17,7 +20,7 @@ module.exports = async function install(packages, {saveDev}) {
       }
     },
     {
-      title: 'Update versions on package.json',
+      title: ' Updating package.json',
       task: ctx => {
         // read package.json
         const rawPackageJson = fs.readFileSync('package.json')
@@ -59,10 +62,15 @@ module.exports = async function install(packages, {saveDev}) {
       const {history} = ctx
 
       // output results
-      console.log()
+      console.log() // spacing
       Object.entries(history).forEach(([pkg, {version, majorVersion}]) => {
-        console.log(`  • ${pkg}: ${version} → ${majorVersion}`)
+        console.log(
+          `  📦  ${chalk.blue(pkg)} ${chalk.red(version)} ➜ ${chalk.green(
+            majorVersion
+          )}`
+        )
       })
-      console.log()
+
+      console.log() // final output spacing
     })
 }
