@@ -5,10 +5,10 @@
   "repository": "https://github.com/desko27/npmajor.git",
   "author": "desko27 <desko27@gmail.com>",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "src/npmajor.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "cd test && node ../src/index.js",
+    "start": "node src/npmajor.js",
+    "test": "cd test && node ../src/npmajor.js",
     "lint": "sui-lint js"
   },
   "dependencies": {
