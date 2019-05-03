@@ -12,12 +12,15 @@
   },
   "dependencies": {
     "@s-ui/lint": "2",
+    "commander": "^2.20.0",
     "execa": "^1.0.0",
     "listr": "^0.14.3",
     "semver": "^6.0.0"
   },
   "eslintConfig": {
-    "extends": ["./node_modules/@s-ui/lint/eslintrc.js"],
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ],
     "rules": {
       "no-console": 0
     }
