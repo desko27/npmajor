@@ -50,7 +50,7 @@ const {args: packages, saveDev} = program
         })
 
         // commit changes to package.json file
-        const updatedPackageJson = JSON.stringify(packageJson, null, 2)
+        const updatedPackageJson = `${JSON.stringify(packageJson, null, 2)}\n`
         fs.writeFileSync('package.json', updatedPackageJson)
 
         // send results to the output
